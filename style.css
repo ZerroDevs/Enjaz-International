@@ -4,14 +4,14 @@
 */
 
 :root {
-  --primary-color: #0b2341; /* Deep Blue from card */
-  --secondary-color: #374151; /* Dark Slate */
-  --accent-color: #e5e7eb; /* Metallic light tone */
-  --text-main: #1f2937;
-  --text-light: #f3f4f6;
+  --primary-color: #b84c20; /* Rust Orange from logo */
+  --secondary-color: #f29c1f; /* Golden Yellow from logo */
+  --accent-color: #e5e7eb;
+  --text-main: #2d1a11;
+  --text-light: #ffffff;
   --bg-color: #ffffff;
-  --bg-alt: #f9fafb;
-  --nav-height: 70px;
+  --bg-alt: #fcf8f5;
+  --nav-height: 80px;
 }
 
 * {
@@ -79,16 +79,26 @@ img {
 }
 
 .nav-brand {
+  display: flex;
+  align-items: center;
   font-size: 1.2rem;
   font-weight: bold;
-  display: flex;
-  flex-direction: column;
   line-height: 1.2;
 }
 
-.nav-brand span {
+.nav-brand img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.nav-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-brand-text span {
   font-size: 0.8rem;
-  color: var(--accent-color);
+  color: var(--text-light); /* Changed to light since accent is dark/gray now */
 }
 
 .nav-menu {
@@ -357,9 +367,55 @@ textarea.form-control {
 
 /* Image styling */
 .img-responsive {
-  border-radius: 6px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
   margin-bottom: 20px;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.img-responsive:hover {
+  transform: translateY(-5px);
+}
+
+.img-flex-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.img-flex-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.img-flex-container img:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+@media (min-width: 768px) {
+  .img-flex-container {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: stretch;
+  }
+}
+
+/* Scroll Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Desktop Styles */
