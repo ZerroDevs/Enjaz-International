@@ -404,6 +404,24 @@ textarea.form-control {
     grid-template-columns: repeat(2, 1fr);
     align-items: stretch;
   }
+
+  .feature-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 35px;
+  }
+
+  .feature-row.reverse .feature-text {
+    order: 2;
+  }
+
+  .feature-row.reverse .feature-img-card {
+    order: 1;
+  }
+
+  .feature-img-card {
+    height: 280px;
+  }
 }
 
 /* Scroll Reveal Animation */
@@ -416,6 +434,64 @@ textarea.form-control {
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Feature Split Layout (Text + Image Card with Badge) */
+.feature-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+  align-items: center;
+  margin-bottom: 40px;
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid rgba(184, 76, 32, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.feature-text h3 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 12px;
+}
+
+.feature-text p {
+  color: var(--text-main);
+  line-height: 1.7;
+}
+
+.feature-img-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  height: 240px;
+}
+
+.feature-img-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.feature-row:hover .feature-img-card img {
+  transform: scale(1.04);
+}
+
+.feature-badge {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background-color: #ffffff;
+  color: var(--primary-color);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Desktop Styles */
